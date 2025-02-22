@@ -190,19 +190,38 @@ img {
 }
 
 .subtitle {
-  font-size: 1.5rem; 
-  font-weight: dark; 
+  font-size: 1.5rem;
   margin-top: 1.5rem;
-  color: var(--text-color); 
-  white-space: nowrap; 
-  text-align: center;
+  opacity: 0;
+  background: linear-gradient(45deg, var(--secondary-color), var(--text-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  position: relative;
   display: inline-block;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 2.5s;
 }
 
 .subtitle::before,
 .subtitle::after {
-  content: none; /* Removed decorative lines */
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: var(--secondary-color);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: width 0.3s ease;
+}
+
+.subtitle::before {
+  left: -40px;
+}
+
+.subtitle::after {
+  right: -40px;
 }
 
 
